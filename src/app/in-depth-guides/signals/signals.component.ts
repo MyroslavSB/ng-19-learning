@@ -14,9 +14,13 @@ export class SignalsComponent {
 
   public showCount: WritableSignal<boolean> = signal(false);
 
-  public count: WritableSignal<number> = signal(0)
+  public count: WritableSignal<number> = signal(6)
 
   public conditionalCount = computed(() => {
-    return this.count() * 2
+    if (this.showCount()) {
+      return this.count() * 2;
+    } else {
+      return 2;
+    }
   })
 }
